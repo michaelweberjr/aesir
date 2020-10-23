@@ -6,7 +6,7 @@ import aesir.io;
 import aesir.search;
 import aesir.position;
 
-final class Console : IO
+/+final class Console : IO
 {
     override void Console_Loop(Possition pos)
     {
@@ -21,12 +21,13 @@ final class Console : IO
         int depth = MAXDEPTH, movetime = 3000;
         int engineSide = BOTH;
         int move = NOMOVE;
-        char inBuf[80], command[80];
+        char[80] inBuf;
+		char[80] command;
 
         engineSide = BLACK;
         ParseFen(START_FEN, pos);
 
-        while(TRUE) {
+        while(true) {
 
             fflush(stdout);
 
@@ -181,4 +182,4 @@ final class Console : IO
 
     override void postMove(Move move);
     override void postThinking(int bestScore, int currentDepth, Position pos);
-}
+}+/

@@ -1,0 +1,7 @@
+{
+	"name": "libchess",
+	"targetType": "library",
+	"sourcePaths": [
+		"./",
+	]
+}

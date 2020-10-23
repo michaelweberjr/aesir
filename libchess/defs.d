@@ -64,8 +64,8 @@ private
 }
 
 // Returns the file or rank of the square
-int FilesBrd[BRD_SQ_NUM];
-int RanksBrd[BRD_SQ_NUM];
+int[BRD_SQ_NUM] FilesBrd;
+int[BRD_SQ_NUM] RanksBrd;
 
 // Initializes the conversion arrays
 static this()

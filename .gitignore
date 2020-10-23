@@ -1,0 +1,5 @@
+*.txt
+*.exe
+*.lib
+.dub/*
+libches/.dub/*

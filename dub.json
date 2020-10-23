@@ -1,0 +1,14 @@
+{
+	"name": "aesir",
+	"authors": ["Michael Weber"],
+	"targetType": "executable",
+	"dependencies": {
+		"aesir:libchess": "*"
+	},
+	"sourcePaths": ["./aesir/"],
+	"importPaths": ["./"],
+
+	"subPackages": [
+		"./libchess/"
+	]
+}

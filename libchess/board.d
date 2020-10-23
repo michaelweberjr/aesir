@@ -478,7 +478,7 @@ class Board
     }
 
     // used to quickly determine what the castle permitions change when a piece moves
-    private static const int CastlePerm[120] = [
+    private static const int[120] CastlePerm = [
         15, 15, 15, 15, 15, 15, 15, 15, 15, 15,
         15, 15, 15, 15, 15, 15, 15, 15, 15, 15,
         15, 13, 15, 15, 15, 12, 15, 15, 14, 15,
@@ -954,7 +954,7 @@ class Board
         {
             private
             {
-                Move moves[MAXPOSITIONMOVES];
+                Move[MAXPOSITIONMOVES] moves;
                 int count;
                 int frontIndex;
             }
@@ -1195,7 +1195,7 @@ class Board
         {
             private
             {
-                Move moves[MAXPOSITIONMOVES];
+                Move[MAXPOSITIONMOVES] moves;
                 int count;
                 int frontIndex;
             }

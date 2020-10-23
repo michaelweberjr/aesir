@@ -23,7 +23,7 @@ private enum int QueenOpenFile = 5;
 private enum int QueenSemiOpenFile = 3;
 private enum int BishopPair = 30;
 
-private enum int PawnTable[64] = [
+private enum int[64] PawnTable = [
     0	,	0	,	0	,	0	,	0	,	0	,	0	,	0	,
     10	,	10	,	0	,	-10	,	-10	,	0	,	10	,	10	,
     5	,	0	,	0	,	5	,	5	,	0	,	0	,	5	,
@@ -34,7 +34,7 @@ private enum int PawnTable[64] = [
     0	,	0	,	0	,	0	,	0	,	0	,	0	,	0
 ];
 
-private enum int KnightTable[64] = [
+private enum int[64] KnightTable = [
     0	,	-10	,	0	,	0	,	0	,	0	,	-10	,	0	,
     0	,	0	,	0	,	5	,	5	,	0	,	0	,	0	,
     0	,	0	,	10	,	10	,	10	,	10	,	0	,	0	,
@@ -45,7 +45,7 @@ private enum int KnightTable[64] = [
     0	,	0	,	0	,	0	,	0	,	0	,	0	,	0
 ];
 
-private enum int BishopTable[64] = [
+private enum int[64] BishopTable = [
     0	,	0	,	-10	,	0	,	0	,	-10	,	0	,	0	,
     0	,	0	,	0	,	10	,	10	,	0	,	0	,	0	,
     0	,	0	,	10	,	15	,	15	,	10	,	0	,	0	,
@@ -56,7 +56,7 @@ private enum int BishopTable[64] = [
     0	,	0	,	0	,	0	,	0	,	0	,	0	,	0
 ];
 
-private enum int RookTable[64] = [
+private enum int[64] RookTable = [
     0	,	0	,	5	,	10	,	10	,	5	,	0	,	0	,
     0	,	0	,	5	,	10	,	10	,	5	,	0	,	0	,
     0	,	0	,	5	,	10	,	10	,	5	,	0	,	0	,
@@ -67,7 +67,7 @@ private enum int RookTable[64] = [
     0	,	0	,	5	,	10	,	10	,	5	,	0	,	0
 ];
 
-private enum int KingE[64] = [
+private enum int[64] KingE = [
 	-50	,	-10	,	0	,	0	,	0	,	0	,	-10	,	-50	,
 	-10,	0	,	10	,	10	,	10	,	10	,	0	,	-10	,
 	0	,	10	,	20	,	20	,	20	,	20	,	10	,	0	,
@@ -78,7 +78,7 @@ private enum int KingE[64] = [
 	-50	,	-10	,	0	,	0	,	0	,	0	,	-10	,	-50
 ];
 
-private enum int KingO[64] = [
+private enum int[64] KingO = [
 	0	,	5	,	5	,	-10	,	-10	,	0	,	10	,	5	,
 	-30	,	-30	,	-30	,	-30	,	-30	,	-30	,	-30	,	-30	,
 	-50	,	-50	,	-50	,	-50	,	-50	,	-50	,	-50	,	-50	,
@@ -89,7 +89,7 @@ private enum int KingO[64] = [
 	-70	,	-70	,	-70	,	-70	,	-70	,	-70	,	-70	,	-70
 ];
 
-private enum int Mirror64[64] = [
+private enum int[64] Mirror64 = [
     56	,	57	,	58	,	59	,	60	,	61	,	62	,	63	,
     48	,	49	,	50	,	51	,	52	,	53	,	54	,	55	,
     40	,	41	,	42	,	43	,	44	,	45	,	46	,	47	,
@@ -212,7 +212,7 @@ int materialDraw(Board pos)
 
 private enum int ENDGAME_MAT  = (1 * PieceVal[wR] + 2 * PieceVal[wN] + 2 * PieceVal[wP] + PieceVal[wK]);
 
-private enum int VictimScore[13] = [ 0, 100, 200, 300, 400, 500, 600, 100, 200, 300, 400, 500, 600 ];
+private enum int[13] VictimScore = [ 0, 100, 200, 300, 400, 500, 600, 100, 200, 300, 400, 500, 600 ];
 private int[13][13] MvvLvaScores;
 
 static this()

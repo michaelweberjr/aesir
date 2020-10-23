@@ -12,7 +12,9 @@ module libchess.perft;
 
 import std.stdio;
 import std.range;
-import std.datetime;
+import std.conv;
+import std.datetime.systime;
+import std.datetime.stopwatch;
 import std.algorithm;
 import std.concurrency;
 import core.memory;
@@ -71,7 +73,7 @@ void perftTest(string fileName, Board board, int max_depth = 6)
     writeln("Starting Perf Tests");
     output.writefln("Starting Perf Tests");
 
-    auto totalTime = Clock.currSystemTick();
+    auto totalTime = Clock.currTime();
 
     foreach(line; input.byLine())
     {
@@ -127,8 +129,8 @@ void perftTest(string fileName, Board board, int max_depth = 6)
 
             sw.stop();
 
-            writeln("\tDepth ", depth, " (", sw.peek().msecs, " ms):", leafNodes, "\t", requiredNodes, "\t", leafNodes == requiredNodes ? "PASS" : "FAIL");
-            output.writeln("\tDepth ", depth, " (", sw.peek().msecs, " ms):", leafNodes, "\t", requiredNodes, "\t", leafNodes == requiredNodes ? "PASS" : "FAIL");
+            writeln("\tDepth ", depth, " (", sw.peek().split!"msecs".msecs, " ms):", leafNodes, "\t", requiredNodes, "\t", leafNodes == requiredNodes ? "PASS" : "FAIL");
+            output.writeln("\tDepth ", depth, " (", sw.peek().split!"msecs".msecs, " ms):", leafNodes, "\t", requiredNodes, "\t", leafNodes == requiredNodes ? "PASS" : "FAIL");
 
             if(depth >= max_depth) break;
         }
@@ -136,7 +138,7 @@ void perftTest(string fileName, Board board, int max_depth = 6)
 
     writefln("\n Perf Tests Complete\nPass:%d Fail: %d", pass, fail);
     output.writefln("\n Perf Tests Complete\nPass:%d Fail: %d", pass, fail);
-    writeln("Time to complete: ", (Clock.currSystemTick() - totalTime).msecs, "ms");
+    writeln("Time to complete: ", (Clock.currTime() - totalTime).split!"msecs".msecs, "ms");
 }
 
 void perftTestThreaded(string fileName, Board board, int max_depth = 6, int max_threads = -1)
@@ -156,7 +158,7 @@ void perftTestThreaded(string fileName, Board board, int max_depth = 6, int max_
     writeln("Number of threads: ", max_threads);
     output.writefln("Starting Perf Tests");
 
-    auto totalTime = Clock.currSystemTick();
+    auto totalTime = Clock.currTime();
 
     foreach(line; input.byLine())
     {
@@ -239,8 +241,8 @@ void perftTestThreaded(string fileName, Board board, int max_depth = 6, int max_
 
             sw.stop();
 
-            writeln("\tDepth ", depth, " (", sw.peek().msecs, " ms):", leafNodes, "\t", requiredNodes, "\t", leafNodes == requiredNodes ? "PASS" : "FAIL");
-            output.writeln("\tDepth ", depth, " (", sw.peek().msecs, " ms):", leafNodes, "\t", requiredNodes, "\t", leafNodes == requiredNodes ? "PASS" : "FAIL");
+            writeln("\tDepth ", depth, " (", sw.peek().split!"msecs".msecs, " ms):", leafNodes, "\t", requiredNodes, "\t", leafNodes == requiredNodes ? "PASS" : "FAIL");
+            output.writeln("\tDepth ", depth, " (", sw.peek().split!"msecs".msecs, " ms):", leafNodes, "\t", requiredNodes, "\t", leafNodes == requiredNodes ? "PASS" : "FAIL");
 
             if(depth >= max_depth) break;
         }
@@ -248,5 +250,5 @@ void perftTestThreaded(string fileName, Board board, int max_depth = 6, int max_
 
     writefln("\n Perf Tests Complete\nPass:%d Fail: %d", pass, fail);
     output.writefln("\n Perf Tests Complete\nPass:%d Fail: %d", pass, fail);
-    writeln("Time to complete: ", (Clock.currSystemTick() - totalTime).msecs, "ms");
+    writeln("Time to complete: ", (Clock.currTime() - totalTime).split!"msecs".msecs, "ms");
 }

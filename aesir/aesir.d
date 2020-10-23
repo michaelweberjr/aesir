@@ -37,7 +37,7 @@ int main(string[] args)
     }
     else if(cla.perftThreaded)
     {
-        perftTestThreaded(cla.perftFile, pos, 3, cla.threadCount);
+        perftTestThreaded(cla.perftFile, pos, 6, cla.threadCount);
         return 0;
     }
 

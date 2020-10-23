@@ -1,6 +1,7 @@
 module aesir.search;
 
 import std.concurrency;
+import std.datetime.systime;
 import std.datetime;
 import std.algorithm;
 
@@ -40,7 +41,7 @@ private int quiescence(int alpha, int beta, Position pos)
 
 	if((pos.info.nodes & 2047) == 0)
     {
-		if(Clock.currSystemTick().msecs > pos.info.stopTime)
+		if(Clock.currTime().fracSecs.split!"msecs".msecs > pos.info.stopTime)
         {
             pos.info.stop = true;
         }
@@ -110,7 +111,7 @@ private int alphaBeta(int alpha, int beta, int depth, Position pos, int doNull =
 
 	if((pos.info.nodes & 2047) == 0)
     {
-		if(Clock.currSystemTick().msecs > pos.info.stopTime)
+		if(Clock.currTime().fracSecs.split!"msecs".msecs > pos.info.stopTime)
         {
             pos.info.stop = true;
         }
